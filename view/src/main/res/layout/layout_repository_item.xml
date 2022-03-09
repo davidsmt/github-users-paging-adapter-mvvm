@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_transparent_rounded_corners"
+    android:padding="@dimen/space_big">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/repository_user_profile_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/avatar_small_size"
+        android:adjustViewBounds="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/repository_user_profile_login"
+        style="@style/Label.Regular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_normal"
+        android:layout_marginTop="@dimen/space_extra_small"
+        android:ellipsize="end"
+        android:lines="1"
+        app:layout_constraintBottom_toBottomOf="@+id/repository_user_profile_avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/repository_user_profile_avatar"
+        app:layout_constraintTop_toTopOf="@+id/repository_user_profile_avatar"
+        tools:text="User profile login" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/user_profile_header_barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="repository_user_profile_avatar, repository_user_profile_login" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/repository_title"
+        style="@style/Label.Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_normal"
+        android:ellipsize="end"
+        android:lines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_profile_header_barrier"
+        tools:text="User profile email" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/repository_description"
+        style="@style/Label.Regular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_extra_small"
+        android:ellipsize="end"
+        android:lines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repository_title"
+        tools:text="User profile email" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/repository_favorites_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_extra_small_size"
+        android:layout_marginTop="@dimen/space_normal"
+        android:src="@drawable/ic_star"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repository_description" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/repository_favorites_counter"
+        style="@style/Label.Regular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_extra_small"
+        android:ellipsize="end"
+        android:lines="1"
+        android:maxEms="@integer/label_max_length"
+        app:layout_constraintBottom_toBottomOf="@+id/repository_favorites_icon"
+        app:layout_constraintStart_toEndOf="@+id/repository_favorites_icon"
+        app:layout_constraintTop_toTopOf="@+id/repository_favorites_icon"
+        tools:text="75" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/repository_topic_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_extra_small_size"
+        android:layout_marginStart="@dimen/space_extra_large"
+        android:layout_marginTop="@dimen/space_normal"
+        android:src="@drawable/ic_circle"
+        app:layout_constraintStart_toEndOf="@+id/repository_favorites_counter"
+        app:layout_constraintTop_toBottomOf="@+id/repository_description" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/repository_language_label"
+        style="@style/Label.Regular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_extra_small"
+        android:ellipsize="end"
+        android:lines="1"
+        android:maxEms="@integer/label_max_length"
+        app:layout_constraintBottom_toBottomOf="@+id/repository_topic_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/repository_topic_icon"
+        app:layout_constraintTop_toTopOf="@+id/repository_topic_icon"
+        tools:text="Kotlin" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

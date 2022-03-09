@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/space_big" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/space_big" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="@dimen/space_big" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/user_profile_avatar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/avatar_size"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                    app:layout_constraintTop_toTopOf="@+id/guideline_top"
+                    tools:src="@tools:sample/avatars" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/user_profile_name"
+                    style="@style/Header.Title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_normal"
+                    app:layout_constraintBottom_toTopOf="@+id/user_profile_login"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+                    app:layout_constraintStart_toEndOf="@+id/user_profile_avatar"
+                    app:layout_constraintTop_toTopOf="@+id/user_profile_avatar"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:text="User profile name" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/user_profile_login"
+                    style="@style/Label.Regular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_normal"
+                    android:layout_marginTop="@dimen/space_extra_small"
+                    app:layout_constraintBottom_toBottomOf="@+id/user_profile_avatar"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+                    app:layout_constraintStart_toEndOf="@+id/user_profile_avatar"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_name"
+                    tools:text="User profile login" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/user_profile_header_barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="user_profile_avatar, user_profile_login" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/user_profile_email"
+                    style="@style/Label.Bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_normal"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_header_barrier"
+                    tools:text="User profile email" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/user_profile_followers_counter"
+                    style="@style/Label.Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_normal"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_email"
+                    tools:text="48" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/user_profile_followers_label"
+                    style="@style/Label.Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_small"
+                    android:layout_marginTop="@dimen/space_normal"
+                    android:text="@string/followers"
+                    app:layout_constraintStart_toEndOf="@+id/user_profile_followers_counter"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_email" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/user_profile_following_counter"
+                    style="@style/Label.Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_extra_large"
+                    android:layout_marginTop="@dimen/space_normal"
+                    app:layout_constraintStart_toEndOf="@+id/user_profile_followers_label"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_email"
+                    tools:text="72" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/user_profile_following_label"
+                    style="@style/Label.Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_small"
+                    android:layout_marginTop="@dimen/space_normal"
+                    android:text="@string/following"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/user_profile_following_counter"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_email" />
+
+                <!--Top repositories section-->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/top_repositories_section_title"
+                    style="@style/Header.Section"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/space_normal"
+                    android:paddingBottom="@dimen/space_small"
+                    android:text="@string/top_repositories"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_followers_counter" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/top_repositories_list"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:scrollbars="none"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/top_repositories_section_title"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/layout_repository_item" />
+
+                <!--Starred repositories section-->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/starred_repositories_section_title"
+                    style="@style/Header.Section"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/space_normal"
+                    android:paddingBottom="@dimen/space_small"
+                    android:text="@string/starred_repositories"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/top_repositories_list" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/starred_repositories_list"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="true"
+                    android:orientation="horizontal"
+                    android:scrollbars="none"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/starred_repositories_section_title"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/layout_repository_item" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/space_large"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/starred_repositories_list" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

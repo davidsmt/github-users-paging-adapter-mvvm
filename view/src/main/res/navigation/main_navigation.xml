@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/fragment_github_users_fragment">
+
+    <fragment
+        android:id="@+id/fragment_github_users_fragment"
+        android:name="com.githubstarredusers.view.screens.githubusers.GitHubUsersFragment"
+        android:label="@string/users_screen_title"
+        tools:layout="@layout/fragment_github_users_fragment" >
+        <action
+            android:id="@+id/action_fragment_github_users_fragment_to_gitHubUserProfileFragment"
+            app:destination="@id/fragment_github_profile_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_github_profile_fragment"
+        android:name="com.githubstarredusers.view.screens.githubuserprofile.GitHubUserProfileFragment"
+        android:label="@string/user_profile_screen_title">
+        <argument
+            android:name="login"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
